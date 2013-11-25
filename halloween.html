@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title></title>
+<style>
+
+#Happy_Halloween
+{
+ color:#00FF00;
+ font-size:36px;
+text-shadow: 5px 5px 5px #00FF00;
+}
+
+body
+{
+background:#000000;
+}
+</style>
+</head>
+<body>
+<div id="Happy_Halloween"><center>Happy Halloween</center></div>
+
+<center><canvas id="jack_o_latern" width="1000" height="500"></canvas></center>
+//<canvas id="jack_o_latern_rect" width="800" height="500"></canvas>
+
+<script>
+var pumpkin_canvas=document.getElementById('jack_o_latern');
+var context=pumpkin_canvas.getContext('2d');
+
+var center_X=pumpkin_canvas.width/2;
+var center_Y=pumpkin_canvas.height/2;
+var radius=200;
+//creates a semi circle clockwise for the pumpkin
+context.beginPath();
+context.arc(center_X,center_Y,radius,1/2*Math.PI,3/2*Math.PI,true);
+context.lineWidth=10;
+context.fillStyle='orange';
+context.fill();
+context.strokeStyle='orange';
+context.stroke();
+context.closePath();
+
+//to create a rectangular part of a pumpkin
+var new_pumpkin_canvas=document.getElementById('jack_o_latern');
+var new_context=new_pumpkin_canvas.getContext('2d');
+
+var new_center_X=new_pumpkin_canvas.width/2;
+var new_center_Y=new_pumpkin_canvas.height/2;
+var new_radius=200;
+
+
+new_context.beginPath();
+
+new_context.moveTo(new_center_X,new_center_Y+new_radius);
+new_context.lineTo(new_center_X-new_radius,new_center_Y+new_radius);
+new_context.lineTo(new_center_X-new_radius, new_center_Y-new_radius);
+new_context.lineTo(new_center_X,new_center_Y-new_radius);
+new_context.lineWidth=10;
+new_context.fillStyle='orange';
+new_context.fill();
+new_context.strokeStyle='orange';
+new_context.stroke();
+new_context.closePath();
+// var eyes_canvas=document.getElementById('jack_o_latern');
+ //var context_eyes_mouth=eyes_canvas.getContext('2d');
+
+var new_pumpkin_canvas_arcs=document.getElementById('jack_o_latern');
+var new_context_arcs=new_pumpkin_canvas_arcs.getContext('2d');
+var new_radius_arcs=200;
+var new_center_X_arcs=new_pumpkin_canvas_arcs.width/2-new_radius_arcs;
+var new_center_Y_arcs=new_pumpkin_canvas_arcs.height/2;
+new_context_arcs.beginPath();
+new_context_arcs.arc(new_center_X_arcs,new_center_Y_arcs,new_radius_arcs,1/2*Math.PI,3/2*Math.PI,false);
+new_context_arcs.lineWidth=10;
+new_context_arcs.fillStyle='orange';
+new_context_arcs.fill();
+new_context_arcs.strokeStyle='orange';
+new_context_arcs.stroke();
+new_context_arcs.closePath();
+
+//creates the left eye of jack o latern
+var pumpkin_eye_one=document.getElementById('jack_o_latern');
+var pumpkin_eye_one_context=pumpkin_eye_one.getContext('2d');
+var radius_eye_one=200;
+var new_center_X_eye_one=pumpkin_eye_one.width/2-radius_eye_one;
+var new_center_Y_eye_one=pumpkin_eye_one.height/2;
+var eye_glow;
+pumpkin_eye_one_context.beginPath();
+pumpkin_eye_one_context.moveTo(new_center_X_eye_one,new_center_Y_eye_one-30);
+pumpkin_eye_one_context.lineTo(new_center_X_eye_one-30,new_center_Y_eye_one-30);
+pumpkin_eye_one_context.lineTo(new_center_X_eye_one,new_center_Y_eye_one-30-61.90);
+pumpkin_eye_one_context.lineTo(new_center_X_eye_one+30,new_center_Y_eye_one-30);
+pumpkin_eye_one_context.lineTo(new_center_X_eye_one,new_center_Y_eye_one-30);
+
+pumpkin_eye_one_context.lineWidth=10;
+pumpkin_eye_one_context.fillStyle='yellow';
+
+
+pumpkin_eye_one_context.fill();
+pumpkin_eye_one_context.strokeStyle='yellow';
+pumpkin_eye_one_context.stroke();
+pumpkin_eye_one_context.closePath(); 
+
+//creates the right eye of jack o latern
+var pumpkin_eye_two=document.getElementById('jack_o_latern');
+var pumpkin_eye_two_context=pumpkin_eye_two.getContext('2d');
+//var radius_eye_one=100;
+var new_center_X_eye_two=pumpkin_eye_two.width/2;
+var new_center_Y_eye_two=pumpkin_eye_two.height/2;
+
+pumpkin_eye_two_context.beginPath();
+pumpkin_eye_two_context.moveTo(new_center_X_eye_two,new_center_Y_eye_two-30);
+pumpkin_eye_two_context.lineTo(new_center_X_eye_two-30,new_center_Y_eye_two-30);
+pumpkin_eye_two_context.lineTo(new_center_X_eye_two,new_center_Y_eye_two-30-61.90);
+pumpkin_eye_two_context.lineTo(new_center_X_eye_two+30,new_center_Y_eye_two-30);
+pumpkin_eye_two_context.lineTo(new_center_X_eye_two,new_center_Y_eye_two-30);
+
+pumpkin_eye_two_context.lineWidth=10;
+pumpkin_eye_two_context.fillStyle='yellow';
+
+
+pumpkin_eye_two_context.fill();
+pumpkin_eye_two_context.strokeStyle='yellow';
+pumpkin_eye_two_context.stroke();
+pumpkin_eye_two_context.closePath();
+
+//creates the nose of the jack o latern
+var pumpkin_nose=document.getElementById('jack_o_latern');
+var pumpkin_nose_context=pumpkin_nose.getContext('2d');
+var center_X_nose=pumpkin_nose.width/2;
+var center_Y_nose=pumpkin_nose.height/2;
+var radius_nose=200;
+
+pumpkin_nose_context.beginPath();
+pumpkin_nose_context.moveTo(center_X_nose-(radius_nose/2),center_Y_nose+(radius_nose/2)-30);
+pumpkin_nose_context.lineTo(center_X_nose-(radius_nose/2)-30,center_Y_nose+(radius_nose/2)-30);
+pumpkin_nose_context.lineTo(center_X_nose-(radius_nose/2),center_Y_nose+(radius_nose/2)-30-61.90);
+pumpkin_nose_context.lineTo(center_X_nose-(radius_nose/2)+30,center_Y_nose+(radius_nose/2)-30);
+pumpkin_nose_context.lineTo(center_X_nose-(radius_nose/2),center_Y_nose+(radius_nose/2)-30);
+
+pumpkin_nose_context.lineWidth=10;
+pumpkin_nose_context.fillStyle='yellow';
+
+
+pumpkin_nose_context.fill();
+pumpkin_nose_context.strokeStyle='yellow';
+pumpkin_nose_context.stroke();
+
+
+pumpkin_nose_context.closePath(); 
+//creates smile of jack o latern
+
+var pumpkin_smile=document.getElementById('jack_o_latern');
+var pumpkin_smile_context=pumpkin_smile.getContext('2d');
+
+var center_X_smile=pumpkin_smile.width/2;
+var center_Y_smile=pumpkin_smile.height/2;
+var radius_mouth=50; 
+
+pumpkin_smile_context.beginPath();
+pumpkin_smile_context.arc(center_X_smile-90,center_Y_smile+120,radius_mouth,0,Math.PI,false);
+
+pumpkin_smile_context.lineWidth=10;
+pumpkin_smile_context.fillStyle='yellow';
+
+
+pumpkin_smile_context.fill();
+pumpkin_smile_context.strokeStyle='yellow';
+pumpkin_smile_context.stroke();
+pumpkin_smile_context.closePath();
+
+//creates pumpkin stem
+ var pumpkin_stem=document.getElementById('jack_o_latern');
+var pumpkin_stem_context=pumpkin_stem.getContext('2d');
+var stem_center_X=pumpkin_stem.width/2;
+var stem_center_Y=pumpkin_stem.height/2;
+var stem_radius=200;
+
+pumpkin_stem_context.beginPath();
+pumpkin_stem_context.moveTo(stem_center_X-stem_radius,stem_center_Y-stem_radius);
+pumpkin_stem_context.lineTo(stem_center_X-stem_radius,stem_center_Y-stem_radius-35);
+pumpkin_stem_context.lineTo(stem_center_X-stem_radius+200,stem_center_Y-stem_radius-35);
+pumpkin_stem_context.lineTo(stem_center_X-stem_radius+200,stem_center_Y-stem_radius);
+
+pumpkin_stem_context.lineWidth=10;
+pumpkin_stem_context.fillStyle='green';
+pumpkin_stem_context.fill();
+pumpkin_stem_context.strokeStyle='green';
+pumpkin_stem_context.stroke();
+pumpkin_stem_context.closePath();
+
+</script>
+</body>
+</html>
